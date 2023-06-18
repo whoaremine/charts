@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Header({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>;
@@ -53,11 +55,16 @@ export default function HomePage() {
   }
   console.log("33333");
 
+  const router = useRouter()
 
   return (
+    
     <div >
       <div id="main" style={{ width: 400, height: 400 }}></div>
-
+      <Link href="/display">Home</Link>
+      <button onClick={() => router.push('/display')}>
+      Click here to read more
+    </button>
     </div>
   );
 }
